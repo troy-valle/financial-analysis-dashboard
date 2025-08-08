@@ -7,7 +7,7 @@ export function middleware(req: NextRequest) {
   }
 
   // Check for an auth token (e.g., cookie named 'token')
-  const token = req.cookies.get('token');
+  const token = req.cookies.get('next-auth.session-token');
   if (!token) {
     // Redirect unauthenticated users to /login
     return NextResponse.redirect(new URL('/login', req.url));
